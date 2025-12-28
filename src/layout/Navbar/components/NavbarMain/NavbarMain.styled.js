@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { bgColors, textColors } from "../../../../theme";
 
+
+
 export const NavMainWrapper = styled.div`
     display: flex;
     gap: 30px;
@@ -49,13 +51,42 @@ export const SearchWrapper = styled.div`
         top: 14px;
     }
 `;
-
+ 
 export const NavigationItems = styled.div`
-    display: flex;
-    gap: 30px;
-    align-items: center;
+  display: flex;
+  gap: 30px;
+  align-items: center;
 
-    .item {
-        text-align: center;
+  a.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: ${textColors.primary};
+      transform: scale(1.05);
     }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
 `;

@@ -13,12 +13,15 @@ const PopularProducts = lazy(() => import("../page/PopularProducts/index.jsx"));
 const Catalog = lazy(() => import("../page/Catalog/index.jsx"));
 const ProductDetail = lazy(() => import("../page/Product/index.jsx"));
 
+// ✅ ДОБАВЬТЕ ЭТИ ДВЕ СТРОКИ - НОВЫЕ СТРАНИЦЫ
+const Cart = lazy(() => import("../page/Cart/index.jsx"));
+const Favourites = lazy(() => import("../page/Favourites/index.jsx"));
+
 function AppRouter() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          {" "}
           <Route index element={<Home />} />
           <Route path="popular-products" element={<PopularProducts />} />
           <Route path="blog" element={<Blog />} />
@@ -29,6 +32,8 @@ function AppRouter() {
           <Route path="about-company" element={<AboutCompany />} />
           <Route path="catalog" element={<Catalog />} />
           <Route path="product/:id" element={<ProductDetail />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="favourites" element={<Favourites />} />
         </Route>
       </Routes>
     </Suspense>

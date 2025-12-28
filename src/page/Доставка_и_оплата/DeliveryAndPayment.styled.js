@@ -18,3 +18,4 @@ export const Дocтaвкa_и = styled.div`
 export const Tashqi = styled.div`
  
 `
+

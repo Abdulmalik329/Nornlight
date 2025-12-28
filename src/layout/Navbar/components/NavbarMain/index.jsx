@@ -17,7 +17,10 @@ import { Link } from "react-router-dom";
 function NavbarMain(props) {
   return (
     <NavMainWrapper>
-      <img src="/logo.svg" alt="Logo" />
+      <Link to="/">
+        <img src="/logo.svg" alt="Logo" />
+      </Link>
+
       <SearchWrapper>
         <Link to="/catalog" className="catalog-button">
           <CatalogIcon />
@@ -30,19 +33,22 @@ function NavbarMain(props) {
           </span>
         </div>
       </SearchWrapper>
+
       <NavigationItems>
-        <div className="item">
+        <Link to="/favourites" className="item">
           <HeartIcon />
           <span>Избранное</span>
-        </div>
-        <div className="item">
+        </Link>
+
+        <Link to="/comparison" className="item">
           <NetworkIcon />
           <span>Сравнение</span>
-        </div>
-        <div className="item">
+        </Link>
+
+        <Link to="/cart" className="item">
           <CartIcon />
           <span>Корзина</span>
-        </div>
+        </Link>
       </NavigationItems>
     </NavMainWrapper>
   );

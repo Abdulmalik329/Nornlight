@@ -1,6 +1,6 @@
 import React from "react";
-import { Strelka_ongga } from "../../components";
-import { useAppNavigation } from "../../hooks/useAppNavigation";
+import { Strelka_ongga } from "@/components/icons";
+import { useAppNavigation } from "@/hooks/useAppNavigation.js";
 import { Tashqi, Дocтaвкa_и } from "./DeliveryAndPayment.styled.js";
 import Дocтaвкa_Text from "./Delivery/index.jsx";
 import Karta from "./Map/index.jsx";
