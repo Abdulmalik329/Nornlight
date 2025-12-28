@@ -1,5 +1,10 @@
 import React from "react";
-import { WhyCard, WhyGrid, WhySection } from "./NornLight.styled";
+import {
+  WhyCard,
+  WhyGrid,
+  WhySection,
+  MobileButtonWrapper,
+} from "./NornLight.styled";
 import { Strelka } from "../icons";
 
 import icon1 from "../../assets/image_2/icon1.svg";
@@ -8,61 +13,65 @@ import icon3 from "../../assets/image_2/icon3.svg";
 import icon4 from "../../assets/image_2/icon4.svg";
 import { useAppNavigation } from "../../hooks/useAppNavigation";
 
-function NornLight(props) {
-    const { goToAbout, goToPopular, goToBlog } = useAppNavigation();
+function NornLight() {
+  const { goToAbout } = useAppNavigation();
+
+  const data = [
+    {
+      id: 1,
+      icon: icon1,
+      title: "Только проверенные бренды",
+      desc: "Бренды, проверенные временем и качеством",
+    },
+    {
+      id: 2,
+      icon: icon2,
+      title: "Самые низкие цены",
+      desc: "Ниже некуда, мы гарантируем лучшую цену",
+    },
+    {
+      id: 3,
+      icon: icon3,
+      title: "Быстрая доставка",
+      desc: "Доставляем по всей РФ за 1-10 дней",
+    },
+    {
+      id: 4,
+      icon: icon4,
+      title: "Большой ассортимент",
+      desc: "Более 1000 товаров на любой вкус",
+    },
+  ];
 
   return (
-    <div>
-      <WhySection>
-        <div className="header">
-          <h2>Почему NORNLIGHT?</h2>
-          <button onClick={goToAbout}>
-            О компании <Strelka />
-          </button>
-        </div>
-        <WhyGrid>
-          <WhyCard>
-            <div className="icon">
-              <img src={icon1} alt="" />
-            </div>
-            <h3>Только проверенные бренды</h3>
-            <p>Бренды, проверенные временем и качеством</p>
-          </WhyCard>
-          <WhyCard>
-            <div className="icon">
-              <img src={icon2} alt="" />
-            </div>
-            <h3>Самые низкие цены</h3>
-            <p>Ниже некуда, мы гарантируем лучшую цену</p>
-          </WhyCard>
-          <WhyCard>
-            <div className="icon">
-              <img src={icon3} alt="" />
-            </div>
-            <h3>Быстрая доставка</h3>
-            <p>Доставляем по всей РФ за 1-10 дней</p>
-          </WhyCard>
-          <WhyCard>
-            <div className="icon">
-              <img src={icon4} alt="" />
-            </div>
-            <h3>Большой ассортимент</h3>
-            <p>Более 1000 товаров на любой вкус</p>
-          </WhyCard>
-        </WhyGrid>
-      </WhySection>
+    <WhySection>
+      <div className="header">
+        <h2>Почему NORNLIGHT?</h2>
+        <button onClick={goToAbout}>
+          О компании <Strelka />
+        </button>
+      </div>
 
-      <WhySection>
-        <div className="header">
-          <h2>Популярные товары</h2>
-          <button onClick={goToPopular}>
-            Все товары <Strelka />
-          </button>
-        </div>
-      </WhySection>
+      <WhyGrid>
+        {data.map((item) => (
+          <WhyCard key={item.id}>
+            <div className="icon">
+              <img src={item.icon} alt={item.title} />
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </WhyCard>
+        ))}
+      </WhyGrid>
 
-     
-    </div>
+      {/* Mobilda grid tagida ko'rinadigan tugma */}
+      <MobileButtonWrapper>
+        <button onClick={goToAbout}>
+          О компании <Strelka />
+        </button>
+      </MobileButtonWrapper>
+    </WhySection>
+    
   );
 }
 

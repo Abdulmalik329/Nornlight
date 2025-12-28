@@ -1,100 +1,122 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 40px 20px;
+  background: #fff;
 `;
 
 export const Title = styled.h1`
-  font-size: 32px;
-  margin-bottom: 30px;
-  font-weight: 600;
-`;
-
-export const Content = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 40px;
-
+  font-size: 64px;
+  font-weight: 700;
+  color: #454545;
+  margin-bottom: 40px;
+  span {
+    background: #f03e3e;
+    color: #fff;
+    font-size: 16px;
+    padding: 2px 10px;
+    border-radius: 50px;
+    margin-left: 10px;
+  }
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+    font-size: 32px;
   }
 `;
 
-export const CartSection = styled.div`
-  background: #f8f8f8;
+export const SectionBlock = styled.div`
+  background: #f2f2f2;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  @media (max-width: 768px) {
+    padding: 15px;
+    border-radius: 20px;
+  }
 `;
 
-export const SectionTitle = styled.h2`
-  font-size: 20px;
-  margin-bottom: 20px;
-  font-weight: 600;
+export const CartHeader = styled.div`
+  display: grid;
+  grid-template-columns: 100px 1.5fr 2fr 1fr 180px 40px;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  color: #888;
+  font-size: 14px;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const CartItem = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 100px 1.5fr 2fr 1fr 180px 40px;
   gap: 20px;
   align-items: center;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    align-items: flex-start;
+  }
 `;
 
 export const ItemImage = styled.img`
   width: 80px;
   height: 80px;
-  object-fit: cover;
-  border-radius: 5px;
-`;
-
-export const ItemInfo = styled.div`
-  flex: 1;
+  object-fit: contain;
 `;
 
 export const ItemName = styled.div`
   font-weight: 600;
-  margin-bottom: 5px;
-`;
-
-export const ItemCode = styled.div`
-  color: #888;
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  color: #454545;
 `;
 
 export const ItemPrice = styled.div`
+  font-weight: 700;
   font-size: 18px;
-  font-weight: 600;
-  color: #2c3e50;
+  margin-top: 5px;
+`;
+
+export const ItemDesc = styled.div`
+  font-size: 13px;
+  color: #888;
+  @media (max-width: 1024px) {
+    margin: 10px 0;
+  }
+`;
+
+export const QuantityWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  @media (min-width: 1025px) {
+    justify-content: flex-end;
+    gap: 20px;
+  }
 `;
 
 export const QuantityControl = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
-
+  gap: 15px;
+  background: #f2f2f2;
+  padding: 8px 15px;
+  border-radius: 10px;
   button {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 5px;
+    border: none;
+    background: none;
+    font-size: 20px;
     cursor: pointer;
-    font-size: 18px;
-
-    &:hover {
-      background: #f0f0f0;
-    }
-  }
-
-  span {
-    min-width: 30px;
-    text-align: center;
-    font-weight: 600;
   }
 `;
 
@@ -103,79 +125,84 @@ export const DeleteButton = styled.button`
   border: none;
   font-size: 20px;
   cursor: pointer;
-  opacity: 0.6;
-
-  &:hover {
-    opacity: 1;
-  }
 `;
 
-export const OrderSection = styled.div`
-  background: #f8f8f8;
-  padding: 30px;
-  border-radius: 10px;
-  height: fit-content;
-`;
-
-export const FormGroup = styled.div`
+export const SectionTitle = styled.h2`
+  font-size: 28px;
   margin-bottom: 20px;
+  color: #454545;
 `;
 
-export const Label = styled.label`
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
+export const FormRow = styled.div`
+  display: grid;
+  grid-template-columns: ${(props) =>
+    props.isFull ? "1fr" : "repeat(3, 1fr)"};
+  gap: 20px;
+  margin-bottom: 20px;
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 `;
 
 export const Input = styled.input`
   width: 100%;
-  padding: 12px 15px;
+  padding: 18px 25px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 50px; /* image_ef4983 dagi pill shakli */
+  outline: none;
   font-size: 14px;
-
-  &:focus {
-    outline: none;
-    border-color: #3498db;
-  }
 `;
 
 export const Textarea = styled.textarea`
   width: 100%;
-  padding: 12px 15px;
+  padding: 20px 25px;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 14px;
-  resize: vertical;
+  border-radius: 20px;
+  min-height: 120px;
+  outline: none;
+  resize: none;
+`;
 
-  &:focus {
-    outline: none;
-    border-color: #3498db;
+export const PaymentDetails = styled.div`
+  margin-bottom: 20px;
+  .pay-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+    span:first-child {
+      color: #888;
+    }
   }
 `;
 
 export const TotalPrice = styled.div`
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
-  color: #2c3e50;
-  margin: 20px 0;
-  text-align: center;
+  margin-bottom: 25px;
 `;
 
 export const SubmitButton = styled.button`
   width: 100%;
-  padding: 15px;
-  background: #2c3e50;
-  color: white;
+  padding: 20px;
+  background: #454545;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  @media (min-width: 992px) {
+    width: 300px;
+  }
+`;
 
-  &:hover {
-    background: #1a252f;
-    transform: translateY(-2px);
+export const AgreementText = styled.p`
+  font-size: 12px;
+  color: #999;
+  margin-top: 15px;
+  @media (max-width: 768px) {
+    text-align: center;
   }
 `;

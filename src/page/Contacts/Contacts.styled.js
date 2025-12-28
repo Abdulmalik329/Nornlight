@@ -1,67 +1,49 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
-  padding: 0;
 `;
 
 export const TopSection = styled.div`
-  max-width: 1800px;
+  max-width: 1300px; /* Standart konteyner kengligi */
   margin: 0 auto;
-  padding: 40px 60px;
+  padding: 40px 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 
   @media (max-width: 1024px) {
     flex-direction: column;
-    gap: 30px;
-    padding: 30px 40px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 20px 20px;
+    gap: 20px;
   }
 `;
 
 export const Breadcrumb = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 25px;
-
+  gap: 10px;
+  margin-bottom: 20px;
   p {
     font-size: 14px;
-    color: #666;
+    color: #888;
     cursor: pointer;
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: #bbb8b8ff;
-    }
-
-    &:last-child {
-      color: #2c3e50;
-      cursor: default;
-    }
   }
 `;
 
 export const Title = styled.h1`
   font-weight: 700;
-  font-size: 48px;
-  color: #2c3e50;
+  font-size: 64px; /* Dizayndagi katta sarlavha */
+  color: #454545;
   margin: 0;
 
   @media (max-width: 768px) {
-    font-size: 36px;
+    font-size: 32px;
   }
 `;
 
 export const PhoneBlock = styled.div`
   text-align: right;
-
   @media (max-width: 1024px) {
     text-align: left;
   }
@@ -70,128 +52,92 @@ export const PhoneBlock = styled.div`
 export const PhoneNumber = styled.div`
   font-size: 24px;
   font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 12px;
+  color: #454545;
 `;
 
 export const WorkSchedule = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-
+  margin-top: 10px;
   p {
     font-size: 14px;
-    color: #666;
-    margin: 0;
-
-    &:last-child {
-      color: #999;
-      margin-top: 6px;
-    }
+    color: #454545;
+    margin: 2px 0;
   }
 `;
 
 export const MapSection = styled.div`
-  max-width: 1800px;
-  margin: 0 auto;
-  padding: 0 60px 80px;
+  width: 100%;
   position: relative;
-
-  @media (max-width: 1024px) {
-    padding: 0 40px 60px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0 20px 40px;
-  }
+  margin-top: 20px;
 `;
 
 export const MapWrapper = styled.div`
   width: 100%;
-  height: 420px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 550px; /* Xarita balandligi */
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 
   @media (max-width: 768px) {
-    height: 300px;
+    height: 400px;
   }
 `;
 
 export const InfoBar = styled.div`
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
+  background: white;
+  padding: 30px 40px;
   display: grid;
   grid-template-columns: repeat(3, 1fr) auto;
-  gap: 40px;
-  align-items: center;
-  background: white;
-  padding: 35px 50px;
-  border-radius: 12px;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
-  margin-top: -40px;
-  position: relative;
-  z-index: 10;
+  gap: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 1024px) {
+    position: static; /* Mobilda xaritadan tashqariga chiqadi */
+    transform: none;
+    width: 100%;
     grid-template-columns: 1fr;
-    gap: 25px;
-    padding: 30px 40px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 25px 30px;
-    gap: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 20px;
   }
 `;
 
 export const InfoItem = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
 `;
 
-export const InfoTitle = styled.div`
+export const InfoTitle = styled.span`
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 5px;
+`;
+
+export const InfoText = styled.span`
   font-size: 16px;
   font-weight: 600;
-  color: #2c3e50;
-`;
-
-export const InfoText = styled.div`
-  font-size: 15px;
-  color: ${(props) => (props.link ? "#3498db" : "#666")};
-  cursor: ${(props) => (props.link ? "pointer" : "default")};
-
-  ${(props) =>
-    props.link &&
-    `
-    &:hover {
-      text-decoration: underline;
-    }
-  `}
+  color: #454545;
 `;
 
 export const InfoButton = styled.button`
-  padding: 14px 35px;
-  background: #2c3e50;
+  background: #454545;
   color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 50px; /* Dumaloq tugma */
   cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
+  font-weight: 600;
 
   &:hover {
-    background: #1a252f;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-
-  @media (max-width: 1024px) {
-    width: 100%;
+    background: #000;
   }
 `;

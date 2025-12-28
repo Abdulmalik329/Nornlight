@@ -1,34 +1,38 @@
 import React from "react";
 import { Strelka_ongga } from "../../components";
 import { useAppNavigation } from "../../hooks/useAppNavigation";
-import { Гарантии_goto, Гарантии_goto_data } from "./Guarantees.styled.js";
+import {
+  GuaranteesBreadcrumbs,
+  GuaranteesContent,
+} from "./Guarantees.styled.js";
 
-function Guarantees(props) {
+function Guarantees() {
   const { goToHome } = useAppNavigation();
 
   return (
-    <div>
-      <Гарантии_goto>
+    <div className="container">
+      <GuaranteesBreadcrumbs>
         <div className="Katalog_strelka">
           <p onClick={goToHome}>Главная</p>
           <Strelka_ongga />
-          <p>Гарантии</p>
+          <p style={{ color: "#000" }}>Гарантии</p>
         </div>
-      </Гарантии_goto>
+      </GuaranteesBreadcrumbs>
 
-      <Гарантии_goto_data>
-        <div>
+      <GuaranteesContent>
+        <div className="title-section">
           <h1>Гарантии</h1>
         </div>
-        <div>
+
+        <div className="text-content">
           <h2>Обмен и возврат по желанию покупателя</h2>
           <p>
-            Все товары в магазине «NornLight» имеют гарантию. Она заявляется
-            производителем и имеет определенный срок действия на различные
+            Все товары в магазине «NornLight» имеют гарантию. Она заявляется
+            производителем и имеет определенный срок действия на различные
             группы товаров.
           </p>
           <p>
-            Если ваше изделие вышло из строя в течение гарантийного срока вы
+            Если ваше изделие вышло из строя в течение гарантийного срока вы
             можете обратиться к нам и получить бесплатный ремонт. Для этого
             нужно:
           </p>
@@ -43,13 +47,14 @@ function Guarantees(props) {
               компанией.
             </li>
             <li>
-              После товар отправляется на экспертизу и ремонт. Если ремонт
+              После товар отправляется на экспертизу и ремонт. Если ремонт
               невозможен, мы обменяем изделие на аналогичное либо вернем деньги
               за покупку.
             </li>
           </ul>
+
           <p>
-            Обращаем внимание, что «А-Свет» не является сервисным центром, а
+            Обращаем внимание, что «А-Свет» не является сервисным центром, а
             выполняет роль посредника между клиентом и поставщиком.
           </p>
           <p>
@@ -57,7 +62,7 @@ function Guarantees(props) {
             различных брендов.
           </p>
         </div>
-      </Гарантии_goto_data>
+      </GuaranteesContent>
     </div>
   );
 }

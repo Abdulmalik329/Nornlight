@@ -1,71 +1,36 @@
-import React from 'react';
-import { ProductCard, ProductsGrid } from './Lamp.styled';
-import { Karzinka } from '../icons';
+import React from "react";
+import {
+  ProductCard,
+  ProductsGrid,
+  LampSection,
+  AllProductsButton,
+} from "./Lamp.styled";
+import { Karzinka, Strelka } from "../icons";
 import product1 from "../../assets/svg/lamp-product.svg";
-
-
 import yurakcha from "../../assets/svg/yurakcha.svg";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { useAppNavigation } from "../../hooks/useAppNavigation";
 
-function Lamp(props) {
+function Lamp() {
+  const { goToPopular } = useAppNavigation();
 
-    const products = [
-        {
-          id: 1,
-          name: "Встраиваемый светильник Novotech",
-          price: "6 399₽",
-          image: product1,
-        },
-        {
-          id: 2,
-          name: "Встраиваемый светильник Novotech",
-          price: "6 399₽",
-          image: product1,
-        },
-        {
-          id: 3,
-          name: "Встраиваемый светильник Novotech",
-          price: "6 399₽",
-          image: product1,
-        },
-        {
-          id: 4,
-          name: "Встраиваемый светильник Novotech",
-          price: "6 399₽",
-          image: product1,
-        },
-        {
-          id: 5,
-          name: "Встраиваемый светильник Novotech",
-          price: "6 399₽",
-          image: product1,
-        },
-        {
-          id: 6,
-          name: "Встраиваемый светильник Novotech",
-          price: "6 399₽",
-          image: product1,
-        },
-        {
-          id: 7,
-          name: "Встраиваемый светильник Novotech",
-          price: "6 399₽",
-          image: product1,
-        },
-        {
-          id: 8,
-          name: "Встраиваемый светильник Novotech",
-          price: "6 399₽",
-          image: product1,
-        },
-      ];
+  const products = Array(8)
+    .fill({
+      id: 1,
+      name: "Встраиваемый светильник Novotech",
+      price: "6 399₽",
+      oldPrice: "7 000₽",
+      image: product1,
+    })
+    .map((p, i) => ({ ...p, id: i + 1 }));
 
-    return (
+  return (
+    <LampSection>
       <ProductsGrid>
         {products.map((product) => (
           <ProductCard key={product.id}>
             <div className="product-yurakcha">
-              <img src={yurakcha} alt="" />
+              <img src={yurakcha} alt="favorite" />
             </div>
 
             <Link
@@ -78,7 +43,7 @@ function Lamp(props) {
               <p>{product.name}</p>
             </Link>
 
-            <span className="category">7 000₽</span>
+            <span className="category">{product.oldPrice}</span>
 
             <div className="product-bottom">
               <span className="price">{product.price}</span>
@@ -89,7 +54,15 @@ function Lamp(props) {
           </ProductCard>
         ))}
       </ProductsGrid>
-    );
+
+      {/* Figma: "Все товары" tugmasi */}
+      <div className="view-all-container">
+        <AllProductsButton onClick={goToPopular}>
+          Все товары <Strelka />
+        </AllProductsButton>
+      </div>
+    </LampSection>
+  );
 }
 
 export default Lamp;
